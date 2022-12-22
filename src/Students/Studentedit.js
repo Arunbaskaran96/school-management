@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useFormik } from "formik";
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 function Studentedit() {
   const params = useParams();
@@ -55,6 +55,11 @@ function Studentedit() {
   };
   return (
     <div className="container" id="create-div">
+      <div>
+        <Link to="/portal/students" className="btn btn-info">
+          Back
+        </Link>
+      </div>
       <form onSubmit={formik.handleSubmit}>
         <div className="row">
           <div
@@ -68,6 +73,10 @@ function Studentedit() {
             <label className="labels">Phone number</label>
             <br />
             <label className="labels">Gender</label>
+            <br />
+            <label className="labels">Batch</label>
+            <br />
+            <label className="labels">Course</label>
             <br />
           </div>
           <div className="col-8 inputs">
@@ -110,6 +119,24 @@ function Studentedit() {
             </select>
             <span style={{ color: "red" }}>{formik.errors.gender}</span>
             <br></br>
+            <input
+              name="batches"
+              onChange={formik.handleChange}
+              value={formik.values.batches}
+              className="inputs"
+              type={"number"}
+            ></input>
+            <span style={{ color: "red" }}>{formik.errors.batches}</span>
+            <br />
+            <input
+              name="course"
+              onChange={formik.handleChange}
+              value={formik.values.course}
+              className="inputs"
+              type={"text"}
+            ></input>
+            <br />
+            <span style={{ color: "red" }}>{formik.errors.course}</span>
             <input disabled={isloading} type={"submit"} value="Update"></input>
           </div>
         </div>

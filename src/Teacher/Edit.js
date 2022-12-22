@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useFormik } from "formik";
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 function Edit() {
   const params = useParams();
@@ -55,6 +55,11 @@ function Edit() {
   };
   return (
     <div className="container" id="create-div">
+      <div>
+        <Link to="/portal/teachers" className="btn btn-secondary">
+          Back
+        </Link>
+      </div>
       <form onSubmit={formik.handleSubmit}>
         <div className="row">
           <div

@@ -28,7 +28,7 @@ function Studentview() {
   ) : (
     <div>
       <div>
-        <Link to="/portal/studentcreate" className="btn btn-info">
+        <Link to="/portal/students" className="btn btn-info">
           Back
         </Link>
       </div>
@@ -42,6 +42,8 @@ function Studentview() {
           <li class="list-group-item">Email: {user.email}</li>
           <li class="list-group-item">Phone: {user.phone}</li>
           <li class="list-group-item">Gender: {user.gender}</li>
+          <li class="list-group-item">Batch: {user.batches}</li>
+          <li class="list-group-item">Course: {user.course}</li>
         </ul>
       </div>
     </div>

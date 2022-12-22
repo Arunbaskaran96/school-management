@@ -15,6 +15,7 @@ import Studentview from "./Students/Studentview";
 import Studentcreate from "./Students/Studentcreate";
 import Studentedit from "./Students/Studentedit";
 import { UserProvider } from "./Context/UserContext";
+import ManageStudents from "./Teacher/ManageStudents";
 
 function App() {
   return (
@@ -32,6 +33,10 @@ function App() {
             <Route path="studentview/:id" element={<Studentview />}></Route>
             <Route path="studentcreate" element={<Studentcreate />}></Route>
             <Route path="studentedit/:id" element={<Studentedit />}></Route>
+            <Route
+              path="managestudents/:id"
+              element={<ManageStudents />}
+            ></Route>
           </Route>
         </Routes>
       </UserProvider>

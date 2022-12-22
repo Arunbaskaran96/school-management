@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useFormik } from "formik";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Create() {
   const [isloading, setLoad] = useState(false);
@@ -46,6 +46,11 @@ function Create() {
   });
   return (
     <div className="container" id="create-div">
+      <div>
+        <Link to="/portal/teachers" className="btn btn-secondary">
+          Back
+        </Link>
+      </div>
       <form onSubmit={formik.handleSubmit}>
         <div className="row">
           <div

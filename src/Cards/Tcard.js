@@ -11,6 +11,14 @@ function Tcard({ item, del }) {
         <td>{item.gender}</td>
         <td>
           <Link
+            className="btn btn-secondary btn-sm"
+            to={`/portal/managestudents/${item.id}`}
+          >
+            View list
+          </Link>
+        </td>
+        <td>
+          <Link
             to={`/portal/view/${item.id}`}
             className="btn btn-success btn-sm mr-2 "
           >

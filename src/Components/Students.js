@@ -63,6 +63,8 @@ function Students() {
             <th scope="col">Email</th>
             <th scope="col">Phone number</th>
             <th scope="col">Sex</th>
+            <th scope="col">Batch</th>
+            <th scope="col">Course</th>
             <th scope="col">Action</th>
           </tr>
         </thead>

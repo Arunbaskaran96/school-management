@@ -9,6 +9,8 @@ function Scard({ item, handleDelete }) {
         <td>{item.email}</td>
         <td>{item.phone}</td>
         <td>{item.gender}</td>
+        <td>{item.batches}</td>
+        <td>{item.course}</td>
         <td>
           <Link
             to={`/portal/studentview/${item.id}`}

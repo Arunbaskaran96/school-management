@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useFormik } from "formik";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Studentcreate() {
   const [isloading, setLoad] = useState(false);
@@ -12,6 +12,8 @@ function Studentcreate() {
       email: "",
       phone: "",
       gender: "",
+      batches: "",
+      course: "",
     },
 
     validate: (values) => {
@@ -28,6 +30,12 @@ function Studentcreate() {
       if (!values.gender) {
         errors.gender = "please select gender";
       }
+      if (!values.batches) {
+        errors.batches = "please enter batch";
+      }
+      if (!values.course) {
+        errors.course = "please select course";
+      }
 
       return errors;
     },
@@ -41,11 +49,18 @@ function Studentcreate() {
         );
 
         navigate("/portal/students");
-      } catch (error) {}
+      } catch (error) {
+        console.log(error);
+      }
     },
   });
   return (
     <div className="container" id="create-div">
+      <div>
+        <Link to="/portal/students" className="btn btn-secondary">
+          Back
+        </Link>
+      </div>
       <form onSubmit={formik.handleSubmit}>
         <div className="row">
           <div
@@ -59,6 +74,10 @@ function Studentcreate() {
             <label className="labels">Phone number</label>
             <br />
             <label className="labels">Gender</label>
+            <br />
+            <label className="labels">Batch</label>
+            <br />
+            <label className="labels">Course</label>
             <br />
           </div>
           <div className="col-8 inputs">
@@ -95,12 +114,30 @@ function Studentcreate() {
               value={formik.values.gender}
               className="inputs"
             >
-              <option value={""}>---Select youe gender---</option>
+              <option value={""}>---Select your gender---</option>
               <option value={"male"}>Male</option>
               <option value={"female"}>female</option>
             </select>
             <span style={{ color: "red" }}>{formik.errors.gender}</span>
             <br></br>
+            <input
+              name="batches"
+              onChange={formik.handleChange}
+              value={formik.values.batches}
+              className="inputs"
+              type={"number"}
+            ></input>
+            <span style={{ color: "red" }}>{formik.errors.batches}</span>
+            <br />
+            <input
+              name="course"
+              onChange={formik.handleChange}
+              value={formik.values.course}
+              className="inputs"
+              type={"text"}
+            ></input>
+            <span style={{ color: "red" }}>{formik.errors.course}</span>
+            <br />
             <input disabled={isloading} type={"submit"} value="create"></input>
           </div>
         </div>
