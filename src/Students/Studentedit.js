@@ -41,7 +41,9 @@ function Studentedit() {
         );
         setLoad(true);
         navigate("/portal/students");
-      } catch (error) {}
+      } catch (error) {
+        console.log(error);
+      }
     },
   });
   useEffect(() => {

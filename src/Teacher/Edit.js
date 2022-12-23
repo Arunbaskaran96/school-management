@@ -48,10 +48,14 @@ function Edit() {
     getUser();
   }, []);
   let getUser = async () => {
-    const edit = await axios.get(
-      `https://63932e42ab513e12c5061a40.mockapi.io/teachers/${params.id}`
-    );
-    formik.setValues(edit.data);
+    try {
+      const edit = await axios.get(
+        `https://63932e42ab513e12c5061a40.mockapi.io/teachers/${params.id}`
+      );
+      formik.setValues(edit.data);
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <div className="container" id="create-div">
